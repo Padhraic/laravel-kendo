@@ -1,4 +1,6 @@
-const { mix } = require('laravel-mix');
+const {
+    mix
+} = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,7 +12,17 @@ const { mix } = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
+mix.webpackConfig({
+    resolve: {
+        modules: [
+            path.resolve(__dirname, 'vendor/laravel/spark/resources/assets/js')
+        ]
+    }
+});
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css');
+    .extract(['jquery', '@progress/kendo-ui']);
+if (mix.config.inProduction) {
+    mix.version();
+}
+mix.sass('resources/assets/sass/app.scss', 'public/css');
