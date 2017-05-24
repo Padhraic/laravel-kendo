@@ -12,16 +12,24 @@ const {
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.webpackConfig({
+/*mix.webpackConfig({
     resolve: {
         modules: [
             path.resolve(__dirname, 'vendor/laravel/spark/resources/assets/js')
         ]
     }
-});
+});*/
+
+/*mix.webpackConfig({
+    resolve: {
+        alias: {
+            jquery: "jquery/dist/jquery"
+        }
+    }
+});*/
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .extract(['jquery', '@progress/kendo-ui']);
+    .extract(['jquery']);
 if (mix.config.inProduction) {
     mix.version();
 }

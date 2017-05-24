@@ -20,21 +20,7 @@
   <input id="ddl" />
 </body>
 <script>
-  require('jquery')
-
-  require('kendo.dropdownlist')
-
-  $("#dropdownlist").kendoDropDownList({
-    dataTextField: "text",
-    dataValueField: "value",
-    dataSource: [{
-      text: "Item1",
-      value: "1"
-    }, {
-      text: "Item2",
-      value: "2"
-    }]
-  });
+  $("#ddl").val("we have jquery");
 </script>
 
 </html>
